@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сон подростка: физиология, нормы и гигиена сна</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        slateBg: '#0f172a',
+                        cardBg: '#1e293b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        .slide-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Slide states with zoom, fade & smooth translate transitions */
+        .slide {
+            position: absolute;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.95) translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, visibility 0.6s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 5rem;
+            box-sizing: border-box;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1) translateY(0);
+        }
+
+        /* Image smoothness and scale effect on active slide */
+        .slide-img {
+            transition: transform 0.8s ease-out;
+        }
+        .slide.active .slide-img {
+            transform: scale(1.02);
+        }
+
+        /* Nav controls */
+        .nav-btn {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.2s ease;
+        }
+        .nav-btn:hover {
+            background: rgba(99, 102, 241, 0.9);
+            transform: scale(1.1);
+        }
+
+        .dot-indicator {
+            transition: all 0.3s ease;
+        }
+        .dot-indicator.active {
+            width: 2rem;
+            background-color: #818cf8;
+        }
+    </style>
+</head>
+<body class="bg-slateBg text-slate-100 relative h-screen w-screen overflow-hidden select-none">
+
+    <div class="slide-container">
+
+        <section class="slide active" id="slide-0">
+            <div class="max-w-7xl w-full grid md:grid-cols-2 gap-10 items-center">
+                <div class="space-y-6 text-left">
+                    <span class="inline-block px-4 py-2 rounded-lg bg-indigo-500/20 text-indigo-300 font-bold text-lg border border-indigo-500/30">
+                        Презентация для класса
+                    </span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight">
+                        Сон подростка:<br>
+                        <span class="text-indigo-400">физиология, нормы и гигиена</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-slate-300 font-medium leading-relaxed">
+                        Как устроена физиология сна, почему выработка мелатонина сдвигается и что нужно делать для здорового отдыха.
+                    </p>
+                </div>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 max-h-[70vh]">
+                    <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1200&q=80" 
+                         alt="Уютная спальня и сон" 
+                         class="slide-img w-full h-full object-cover rounded-2xl"
+                         onerror="this.src='https://placehold.co/1200x800/1e293b/ffffff?text=Здоровый+Сон'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slateBg/80 via-transparent to-transparent"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-1">
+            <div class="max-w-7xl w-full space-y-8">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-center text-white">
+                    Что происходит с мозгом во время сна?
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <div class="p-6 bg-cardBg/90 rounded-2xl border border-slate-700/80 shadow-lg">
+                            <h3 class="text-2xl md:text-3xl font-bold text-indigo-400 mb-2">1. Консолидация памяти</h3>
+                            <p class="text-lg md:text-xl text-slate-200">Мозг анализирует пройденный материал и переносит важную информацию в долговременную память.</p>
+                        </div>
+                        <div class="p-6 bg-cardBg/90 rounded-2xl border border-slate-700/80 shadow-lg">
+                            <h3 class="text-2xl md:text-3xl font-bold text-indigo-400 mb-2">2. Очищение от токсинов</h3>
+                            <p class="text-lg md:text-xl text-slate-200">Глимфатическая система мозга активно выводит метаболические отходы, накопившиеся за день.</p>
+                        </div>
+                        <div class="p-6 bg-cardBg/90 rounded-2xl border border-slate-700/80 shadow-lg">
+                            <h3 class="text-2xl md:text-3xl font-bold text-indigo-400 mb-2">3. Выработка гормонов</h3>
+                            <p class="text-lg md:text-xl text-slate-200">Синтезируется гормон роста (соматотропин), укрепляется иммунитет и восстанавливается нервная система.</p>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 max-h-[65vh]">
+                        <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Работа мозга во время сна" 
+                             class="slide-img w-full h-full object-cover"
+                             onerror="this.src='https://placehold.co/1200x800/1e293b/ffffff?text=Работа+Мозга'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-2">
+            <div class="max-w-7xl w-full space-y-8">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-center text-white">
+                    Сколько нужно спать подростку?
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 max-h-[65vh]">
+                        <img src="https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Утренний будильник" 
+                             class="slide-img w-full h-full object-cover"
+                             onerror="this.src='https://placehold.co/1200x800/1e293b/ffffff?text=Часы+и+Время'">
+                    </div>
+                    <div class="space-y-6">
+                        <div class="p-8 bg-indigo-950/40 border-2 border-indigo-500/50 rounded-2xl">
+                            <div class="text-5xl md:text-6xl font-black text-indigo-400 mb-2">8 – 10 часов</div>
+                            <p class="text-xl md:text-2xl font-semibold text-slate-100">Научно обоснованная норма сна в сутки для возраста 13–18 лет.</p>
+                        </div>
+                        <div class="p-6 bg-cardBg/90 rounded-2xl border border-slate-700/80 space-y-3">
+                            <h3 class="text-2xl font-bold text-amber-400">Статистика недосыпа:</h3>
+                            <p class="text-lg md:text-xl text-slate-200 leading-relaxed">
+                                Более <strong class="text-white font-bold">70% подростков</strong> регулярно спать меньше 8 часов в учебные дни из-за высоких нагрузок и биологического сдвига графиков.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-3">
+            <div class="max-w-7xl w-full space-y-8">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-center text-white">
+                    Почему подростку тяжело вставать рано?
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <div class="p-6 bg-cardBg/90 rounded-2xl border border-slate-700/80">
+                            <h3 class="text-2xl md:text-3xl font-bold text-indigo-400 mb-3">Сдвиг циркадных ритмов</h3>
+                            <p class="text-lg md:text-xl text-slate-200 leading-relaxed">
+                                В периоды полового созревания биологические часы естественным образом смещаются на <strong class="text-white">2 часа вперед</strong>.
+                            </p>
+                        </div>
+                        <div class="p-6 bg-cardBg/90 rounded-2xl border border-slate-700/80">
+                            <h3 class="text-2xl md:text-3xl font-bold text-indigo-400 mb-3">Задержка выработки мелатонина</h3>
+                            <p class="text-lg md:text-xl text-slate-200 leading-relaxed">
+                                Гормон сна начинает активно выделяться позже, поэтому уснуть до 23:00 подросткам физиологически сложно.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 max-h-[65vh]">
+                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Биологические часы и пробуждение" 
+                             class="slide-img w-full h-full object-cover"
+                             onerror="this.src='https://placehold.co/1200x800/1e293b/ffffff?text=Циркадные+Ритмы'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-4">
+            <div class="max-w-7xl w-full space-y-8">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-center text-white">
+                    Что еще мешает выспаться?
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 max-h-[65vh]">
+                        <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Подросток со смартфоном в темноте" 
+                             class="slide-img w-full h-full object-cover"
+                             onerror="this.src='https://placehold.co/1200x800/1e293b/ffffff?text=Гаджеты+ночью'">
+                    </div>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="p-5 bg-cardBg/90 rounded-xl border border-slate-700/80">
+                            <h3 class="text-xl md:text-2xl font-bold text-indigo-400 mb-1">📱 Синий свет экранов</h3>
+                            <p class="text-lg text-slate-300">Блокирует синтез мелатонина и подает мозгу сигнал, что на улице день.</p>
+                        </div>
+                        <div class="p-5 bg-cardBg/90 rounded-xl border border-slate-700/80">
+                            <h3 class="text-xl md:text-2xl font-bold text-indigo-400 mb-1">☕ Кофеин и энергетики</h3>
+                            <p class="text-lg text-slate-300">Кофеин во второй половине дня долго выводится и нарушает глубокие фазы сна.</p>
+                        </div>
+                        <div class="p-5 bg-cardBg/90 rounded-xl border border-slate-700/80">
+                            <h3 class="text-xl md:text-2xl font-bold text-indigo-400 mb-1">🧠 Учебный стресс</h3>
+                            <p class="text-lg text-slate-300">Высокий уровень кортизола перед сном препятствует нормальному расслаблению.</p>
+                        </div>
+                        <div class="p-5 bg-cardBg/90 rounded-xl border border-slate-700/80">
+                            <h3 class="text-xl md:text-2xl font-bold text-indigo-400 mb-1">🔄 "Социальный джетлаг"</h3>
+                            <p class="text-lg text-slate-300">Попытка отспаться в выходные сбивает режим на всю следующую неделю.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-5">
+            <div class="max-w-7xl w-full space-y-8">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-center text-white">
+                    Чем опасен хронический недосып?
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <div class="p-6 bg-red-950/30 border border-red-500/40 rounded-2xl">
+                            <h3 class="text-2xl font-bold text-red-400 mb-2">Падение успеваемости</h3>
+                            <p class="text-lg md:text-xl text-slate-200">Снижается концентрация внимания, замедляется реакция и ухудшается запоминание нового материала.</p>
+                        </div>
+                        <div class="p-6 bg-amber-950/30 border border-amber-500/40 rounded-2xl">
+                            <h3 class="text-2xl font-bold text-amber-400 mb-2">Эмоциональная нестабильность</h3>
+                            <p class="text-lg md:text-xl text-slate-200">Повышается уровень тревожности, раздражительности, склонность к апатии и импульсивным поступкам.</p>
+                        </div>
+                        <div class="p-6 bg-indigo-950/30 border border-indigo-500/40 rounded-2xl">
+                            <h3 class="text-2xl font-bold text-indigo-400 mb-2">Ослабление иммунитета</h3>
+                            <p class="text-lg md:text-xl text-slate-200">Организм становится более уязвимым для сезонных вирусных и инфекционных заболеваний.</p>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 max-h-[65vh]">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Уставший за учебой подросток" 
+                             class="slide-img w-full h-full object-cover"
+                             onerror="this.src='https://placehold.co/1200x800/1e293b/ffffff?text=Усталость+и+недосып'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-6">
+            <div class="max-w-7xl w-full space-y-8">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-center text-white">
+                    Советы: Как наладить сон?
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 max-h-[65vh]">
+                        <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1200&q=80" 
+                             alt="Расслабляющий вечер и книга" 
+                             class="slide-img w-full h-full object-cover"
+                             onerror="this.src='https://placehold.co/1200x800/1e293b/ffffff?text=Отдых+и+чтение'">
+                    </div>
+                    <div class="space-y-4">
+                        <div class="p-5 bg-cardBg/90 rounded-xl border border-slate-700/80">
+                            <h3 class="text-xl md:text-2xl font-bold text-emerald-400 mb-1">1. Цифровой детокс</h3>
+                            <p class="text-lg text-slate-200">Выключать экраны телефонов и компьютеров минимум за 45–60 минут до сна.</p>
+                        </div>
+                        <div class="p-5 bg-cardBg/90 rounded-xl border border-slate-700/80">
+                            <h3 class="text-xl md:text-2xl font-bold text-emerald-400 mb-1">2. Постоянный график</h3>
+                            <p class="text-lg text-slate-200">Ложиться и просыпаться в одно и то же время ежедневно (допустимая разница в выходные — до 1 часа).</p>
+                        </div>
+                        <div class="p-5 bg-cardBg/90 rounded-xl border border-slate-700/80">
+                            <h3 class="text-xl md:text-2xl font-bold text-emerald-400 mb-1">3. Проветривание и темнота</h3>
+                            <p class="text-lg text-slate-200">Спать при температуре 18–20°C в полностью темной и проветренной спальне.</p>
+                        </div>
+                        <div class="p-5 bg-cardBg/90 rounded-xl border border-slate-700/80">
+                            <h3 class="text-xl md:text-2xl font-bold text-emerald-400 mb-1">4. Вечерний ритуал</h3>
+                            <p class="text-lg text-slate-200">Чтение книг, спокойная музыка или душ подготавливают мозг к засыпанию.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide" id="slide-7">
+            <div class="max-w-7xl w-full grid md:grid-cols-2 gap-10 items-center">
+                <div class="space-y-8 text-left">
+                    <h2 class="text-4xl md:text-6xl font-black text-white leading-tight">
+                        Главные выводы
+                    </h2>
+                    <ul class="space-y-4 text-xl md:text-2xl text-slate-200 font-medium">
+                        <li class="flex items-start gap-3">
+                            <span class="text-indigo-400 font-bold">✓</span>
+                            <span>Сон — основа здоровья и успешной учебы.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-indigo-400 font-bold">✓</span>
+                            <span>Соблюдайте постоянный режим засыпания.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-indigo-400 font-bold">✓</span>
+                            <span>Замените гаджеты перед сном на качественный отдых.</span>
+                        </li>
+                    </ul>
+                    <div class="pt-4 border-t border-slate-700">
+                        <p class="text-3xl md:text-4xl font-extrabold text-indigo-400">Спасибо за внимание!</p>
+                    </div>
+                </div>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 max-h-[70vh]">
+                    <img src="https://images.unsplash.com/photo-1520206183501-b80df61043c2?auto=format&fit=crop&w=1200&q=80" 
+                         alt="Гармоничный здоровый сон" 
+                         class="slide-img w-full h-full object-cover"
+                         onerror="this.src='https://placehold.co/1200x800/1e293b/ffffff?text=Здоровый+Сон'">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Side Nav Buttons -->
+    <button onclick="prevSlide()" class="nav-btn fixed left-6 top-1/2 -translate-y-1/2 z-50 p-4 rounded-full text-white shadow-xl focus:outline-none" aria-label="Предыдущий слайд">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+    </button>
+    <button onclick="nextSlide()" class="nav-btn fixed right-6 top-1/2 -translate-y-1/2 z-50 p-4 rounded-full text-white shadow-xl focus:outline-none" aria-label="Следующий слайд">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+    </button>
+
+    <!-- Bottom Dots Indicator -->
+    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-cardBg/80 backdrop-blur-md px-6 py-3 rounded-full border border-slate-700/80 shadow-2xl">
+        <div id="dots-container" class="flex items-center gap-2.5"></div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 8;
+
+        function initDots() {
+            const container = document.getElementById('dots-container');
+            container.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.className = `dot-indicator h-3 rounded-full ${i === currentSlide ? 'active w-8 bg-indigo-400' : 'w-3 bg-slate-600 hover:bg-slate-400'}`;
+                dot.onclick = () => goToSlide(i);
+                dot.ariaLabel = `Перейти к слайду ${i + 1}`;
+                container.appendChild(dot);
+            }
+        }
+
+        function updateSlide() {
+            document.querySelectorAll('.slide').forEach((slide, idx) => {
+                if (idx === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+            initDots();
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlide();
+        }
+
+        // Keyboard control listeners
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // Initialize dots on load
+        initDots();
+    </script>
+</body>
+</html>
